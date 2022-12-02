@@ -12,7 +12,7 @@ const Login = ({setAuth}) => {
     setPassword(e.target.value)
   }
   const authenticate = () => {
-    setAuth(username == "user" && password == "amaki")
+    setAuth(username === "user" && password === "amaki")
   }
   return (
     <div className="body">

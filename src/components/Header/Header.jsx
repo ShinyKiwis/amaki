@@ -1,20 +1,24 @@
 import React, { useState } from 'react'
 import "./Header.css"
 import {BiSearch} from 'react-icons/bi'
-import Popupprofile from '../Profile/Profile'
+import {BiCartAlt} from 'react-icons/bi'
+import PopupProfile from '../Profile/Profile'
 
 
-const User = () => {
+const User = ({profile}) => {
   const[buttonPopup, setButtonPopup] = useState(false);
   return (
-    <div className="user_container">
-      <img className="profile_button" onClick={() => setButtonPopup(true)} src="/images/user.jpg" alt="user avatar" />
-      <Popupprofile trigger={buttonPopup} setTrigger={setButtonPopup}>
-      </Popupprofile>
-      <span>Alexander</span>
-    </div>
+    <>
+      {buttonPopup && <PopupProfile trigger={buttonPopup} setTrigger={setButtonPopup} />}
+      <div className="user_container" onClick={!profile ? () => setButtonPopup(true): ""} >
+        <img className="profile_button" src="/images/user.jpg" alt="user avatar" style={profile ? {width:"5em", height: "5em"}: {}}/>
+        {!profile && <span>Alexander</span>}
+      </div>
+    </>
   )
 }
+
+export {User}
 
 const Header = () => {
   return (
@@ -24,9 +28,13 @@ const Header = () => {
         <input className='search_box' placeholder='Wanna see something cool?'/>
         <BiSearch className='search_icon'/>
       </div>
-      <User />
+      <div className='user_actions'>
+        <User />
+        <div className='cart'>
+            <BiCartAlt className='cart_icon'/>
+        </div>
+      </div>
     </div>
   )
 }
-
 export default Header

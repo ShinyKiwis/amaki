@@ -1,34 +1,30 @@
 import React from "react";
+import { User } from "../Header/Header";
 import "./Profile.css";
 
-function Popupprofile(a){
-    return(a.trigger) ? (
-        <div className="popup">
-            <div className="popup_background"></div>
-            <div className="popup_inner">
-                <button className="close" onClick={() => a.setTrigger(false)}>X</button>
-                <img className="profile_avatar" src="/images/user.jpg" alt="user avatar" />
-                <div className="data">
-                    <div className="username_profile">
-                        <h1>Username:</h1><p>Alexander</p>
-                    </div>
-                    <div className="email">
-                        <h1>Email:</h1><p>alexanderthegreat90@gmail.com</p>
-                    </div>
-                    <div className="tel">
-                        <h1>Tel:</h1><p>09656565656</p>
-                    </div>
-                    <div className="address">
-                        <h1>Address:</h1><p>Baker street, D7, Queensland, Mars</p>
-                    </div>
-                    <div className="birthday">
-                        <h1>Birthday:</h1><p>19/10/20</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    ) : "";
+const PopupItem = ({field, content}) => {
+  return (
+    <div className="popup_item">
+      <h2>{field}</h2>
+      <span>{content}</span>
+    </div>
+  )
 }
 
-export default Popupprofile
+function PopupProfile({setTrigger}){
+    return (
+        <div className="popup_background">
+          <div className="popup">
+            <button onClick={() => setTrigger(false)} style={{marginBottom: "-1em"}} id="close_button">X</button>
+            <User profile={true} />
+            <PopupItem field="Username:" content="Alexander"/>
+            <PopupItem field="Email:" content="alexanderthegreat@gmail.com"/>
+            <PopupItem field="Tel:" content="0909991238"/>
+            <PopupItem field="Address:" content="1 Vo Van Ngan"/>
+            <PopupItem field="Membership:" content="Diamond"/>
+          </div>
+        </div>
+    );
+}
+
+export default PopupProfile

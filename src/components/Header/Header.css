@@ -3,7 +3,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 1em 3em;
-  background-color: rgb(136, 179, 252);
 }
 
 .user_container {
@@ -12,7 +11,8 @@
   justify-content: center;
   gap: 1em;
   font-weight: bold;
-  color: #ffffff;
+  color: #638AA7;
+  cursor: pointer;
 }
 
 .profile_button {
@@ -20,7 +20,7 @@
   height: 3em;
   border: 3px solid #ffffff;
   border-radius: 50%;
-  cursor: pointer;
+  border: 3px solid #638AA7;
 }
 
 .header_logo {
@@ -28,13 +28,12 @@
   height: 4em;
   background-color: white;
   border-radius: 2em;
-  border-style: solid;
 }
 .search{
     display: flex;
     align-items: center;
     gap: 0.5em;
-    border: 3px solid #000000;
+    border: 2px solid #638AA7;
     padding: 1em 1.5em; 
     border-radius: 1em;
     background-color: white;
@@ -54,3 +53,30 @@
   height: auto;
   cursor: pointer;
 }
+.cart_icon{
+  width: 2.5em;
+  height: auto;
+  color: #638AA7;
+  cursor: pointer;
+}
+/* Tooltip text */
+.cart .cart_decription {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: rgb(2, 1, 1);
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+.user_actions {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
