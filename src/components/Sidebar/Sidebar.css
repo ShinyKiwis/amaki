@@ -70,10 +70,7 @@
   display: block;
   position: relative;
   padding-left: 2em;
-}
-
-.active {
-  color: #638aa7;
+  font-weight: 500;
 }
 
 .sidebar h3 {
