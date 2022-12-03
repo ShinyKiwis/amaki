@@ -10,22 +10,89 @@
   font-size: larger;
 }
 
-.sidebar h3 {
-  color: #638aa7;
-}
-.slider {
-  z-index: 0;
-  -webkit-appearance: none;
-  width: 100%;
-  height: 15px;
-  border-radius: 5px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+.category_options {
+  display: flex;
+  flex-direction: column;
 }
 
-.slider:hover {
-  opacity: 1;
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #C4CFE5;
 }
+
+.sidebar_item input:checked ~ .checkmark {
+  background-color: #638aa7;
+}
+
+.sidebar_item:hover input ~ .checkmark {
+  background-color: #a5aec2;
+}
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.sidebar_item input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.sidebar_item .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.sidebar_item input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.sidebar_item {
+  color: #C4CFE5;
+  display: block;
+  position: relative;
+  padding-left: 2em;
+}
+
+.active {
+  color: #638aa7;
+}
+
+.sidebar h3 {
+  color: #638aa7;
+  margin: 0.5em;
+}
+
+.options {
+  margin-left: 1em;
+}
+
+.options button {
+  background: transparent;
+  padding: 0.2em 0.5em;
+  border: 2px solid #638aa7;
+  margin-top: 0.5em;
+  color: #638aa7;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 0.6em;
+}
+

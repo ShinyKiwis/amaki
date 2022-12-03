@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Product.css";
 
 const ProductContent = ({productName, imgsrc, price}) => {
@@ -25,20 +25,24 @@ const ProductContent = ({productName, imgsrc, price}) => {
     )
 }
 const Product = () => {
-    return(
-            <div className="Product">
-            <h1>Product</h1>
-            <div className="Product_category">
-                <button>Toys</button>
-                 <button>Phones</button>
-                 <button>Clothes</button>
-            </div>
-                <div className='Product_content'>
-                    <ProductContent productName="Iphone 14" imgsrc="/images/Iphone14.jpg" price="$799" balance="0"/>
-                    <ProductContent productName="Iphone 13" imgsrc="/images/Iphone14.jpg" price="$699" balance="0"/>
-                    <ProductContent productName="Iphone 11" imgsrc="/images/Iphone14.jpg" price="$399" balance="0"/>
-                </div>
-            </div>
-    )
+  const [products, setProducts] = useState([])
+  useEffect(()=>{
+    // for fetching data
+  }, [])
+  return(
+    <div className="Product">
+      <h1>Product</h1>
+      <div className="Product_category">
+        <button>Toys</button>
+        <button>Phones</button>
+        <button>Clothes</button>
+      </div>
+      <div className='Product_content'>
+        <ProductContent productName="Iphone 14" imgsrc="/images/Iphone14.jpg" price="$799" balance="0"/>
+        <ProductContent productName="Iphone 13" imgsrc="/images/Iphone14.jpg" price="$699" balance="0"/>
+        <ProductContent productName="Iphone 11" imgsrc="/images/Iphone14.jpg" price="$399" balance="0"/>
+      </div>
+    </div>
+  )
 }
 export default Product
