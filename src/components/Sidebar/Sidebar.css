@@ -1,4 +1,5 @@
 .sidebar{
+  z-index: 0;
   padding: 1em 2em;
   height: 100vh;
   width: 15%;
@@ -13,6 +14,7 @@
   color: #638aa7;
 }
 .slider {
+  z-index: 0;
   -webkit-appearance: none;
   width: 100%;
   height: 15px;

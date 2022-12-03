@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Header, Sidebar} from './components';
+import {Header, Sidebar, Product} from './components';
 import {Login} from "./pages"
 
 const App = () => {
@@ -17,6 +17,7 @@ const App = () => {
     <main>
       <Header />
       <Sidebar />
+      <Product />
     </main>
   );
 }
