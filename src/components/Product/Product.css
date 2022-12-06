@@ -17,7 +17,6 @@
 .Product_balance{
     font-size: 1.5rem;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 1em;
@@ -44,7 +43,7 @@
     border-width: 2px;
     border-color: rgb(206, 206, 206);
     top: 0.8em;
-    right: 0.8em;
+    right: 0.4em;
     width: 1em;
     padding: 0.5em;   
     height: auto;
@@ -86,7 +85,8 @@
     line-height: 0;
 }
 .Product_box p{
-    color: #ccc;
+    color: grey;
+    font-weight: 600;
     font-size: 0.9rem;
     margin-left:0.5em;
 }

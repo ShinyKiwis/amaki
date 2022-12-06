@@ -1,0 +1,89 @@
+.manager_container{
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+}
+
+.manager_back_button {
+  position: fixed;
+  top: 2%;
+  left: 5%;
+  background-color: #638aa7;
+  padding: 1em 2em;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.6em;
+  cursor: pointer;
+}
+
+.manager_container h1 {
+  color: #638aa7; 
+  margin: 0.5em;
+}
+
+.manager_toolbox {
+  height: 100vh;
+  display: flex;
+}
+
+.manager_actions {
+  width: 20%;
+  height: 100%;
+  border-right: 2px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 2em;
+}
+
+.manager_actions button {
+  background-color: transparent;
+  border: 2px solid #638aa7;
+  color: #638aa7;
+  font-size: 1.2em;
+  font-weight: 600;
+  padding: 1em 2em;
+  cursor: pointer;
+  border-radius: 0.6em;
+}
+
+.manager_content {
+  width: 60%;
+  height: 100%;
+  border-right: 2px solid #ccc;
+}
+
+.manager_shop_info {
+  padding-top: 0.8em;
+  width: 20%;
+  height: 100%;
+}
+
+.manager_shop_form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+  padding: 1em 2em;
+}
+
+.manager_shop_form label {
+  align-self: flex-start;
+  font-weight: bold;
+  color: #638aa7;
+}
+
+.manager_shop_form input {
+  font-size: 1.2em;
+}
+
+.manager_shop_form button {
+  background-color: #638aa7;
+  color: white;
+  font-weight: bold;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 0.6em;
+  cursor: pointer;
+}
+

@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import "./Header.css"
 import {BiSearch} from 'react-icons/bi'
 import {BiCartAlt} from 'react-icons/bi'
+import {BsTrashFill} from "react-icons/bs"
 import PopupProfile from '../Profile/Profile'
+import {useNavigate} from "react-router-dom"
 
 
 const User = ({profile}) => {
@@ -20,7 +22,47 @@ const User = ({profile}) => {
 
 export {User}
 
-const Header = () => {
+const CartSummary = ({cart, setCart}) => {
+  const handleDelete = (productName) => {
+    setCart(cart.filter(product => product.productName !== productName))
+  }
+  const CartItem = ({product}) => {
+    return (
+      <div className="cart_item">
+        <img src={product.imgsrc} alt="product" />
+        <div className='cart_item_info'>
+          <span>{product.productName}</span>
+          <span>Quantity: {product.quantity}</span>
+        </div>
+        <div className='cart_item_info'>
+          <span>Retail: ${product.price}</span>
+          <span>Total: ${product.price*product.quantity}</span>
+        </div>
+        <BsTrashFill className='cart_item_delete' onClick={() => handleDelete(product.productName)}/>
+      </div>
+    )
+  }
+
+  return (
+    <div className="cart_container">
+      <h3>Cart Summary</h3>
+      <div className="cart_content">
+        {cart.map(product=> (
+          <CartItem product={product} />
+        ))}
+      </div>
+      <button className='cart_action'>Pay</button>
+    </div>
+  )
+}
+
+const Header = ({cart, setCart}) => {
+  const navigate = useNavigate()
+  const [toggle, setToggle] = useState(false)
+  const changeRoute = () => {
+    navigate('/shop')
+  }
+  console.log(toggle)
   return (
     <div className="header_container">
       <img className="header_logo" src="/images/Amakilogo.png" alt="pagelogo" />
@@ -28,15 +70,18 @@ const Header = () => {
         <input className='search_box' placeholder='Wanna see something cool?'/>
         <BiSearch className='search_icon'/>
       </div>
-      <div className='header_shop_view'>
-          <span>Shopview</span>
+      <div className='header_shop_view' onClick={changeRoute}>
+          <span>Shop Manager</span>
       </div>
       <div className='user_actions'>
         <User />
         <div className='cart'>
-            <BiCartAlt className='cart_icon'/>
-        </div>
+            <BiCartAlt className='cart_icon'
+              onClick={() => setToggle(!toggle)}
+            />
+        </div> 
       </div>
+      {toggle && <CartSummary cart={cart} setCart={setCart}/>}
     </div>
   )
 }
