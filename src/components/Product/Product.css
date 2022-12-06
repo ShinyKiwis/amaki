@@ -111,8 +111,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 3em;
-    height: 2.5em;
+    width: 1.5em;
+    height: 1.5em;
     color:#638aa7;
     font-size: 1.5rem;
     font-weight: bold;
@@ -121,6 +121,8 @@
     border-style: solid;
     border-width: 2px;
     cursor: pointer;
+    margin-top: -0.5em;
+    margin-right: 0.2em;
 }
 
 .tag {
