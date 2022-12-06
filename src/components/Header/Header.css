@@ -29,6 +29,21 @@
   background-color: white;
   border-radius: 2em;
 }
+.header_shop_view{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 8em;
+  height: 3em;
+  left: 77%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #638AA7;
+  font-weight: bold;
+  cursor: pointer;
+  color: #638AA7 ;
+}
 .search{
     display: flex;
     align-items: center;

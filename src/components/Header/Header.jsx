@@ -28,6 +28,9 @@ const Header = () => {
         <input className='search_box' placeholder='Wanna see something cool?'/>
         <BiSearch className='search_icon'/>
       </div>
+      <div className='header_shop_view'>
+          <span>Shopview</span>
+      </div>
       <div className='user_actions'>
         <User />
         <div className='cart'>
