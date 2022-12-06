@@ -47,7 +47,7 @@ const Pagination =({totalPost, postsPerPage, setcurrentPage}) => {
     </div>
   )
 }
-const Product = () => {
+const Product = ({tags}) => {
   const data = [
     {productName: "Iphone 14", imgsrc:"/images/Iphone14.jpg", price:"$799", balance:"0", category:"Electronics"},
     {productName: "Iphone 13", imgsrc:"/images/Iphone14.jpg", price:"$699", balance:"0", category:"Electronics"},
@@ -61,23 +61,24 @@ const Product = () => {
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = data.slice(firstPostIndex,lastPostIndex); 
+  console.log(tags)
   return(
     <div className="Product">
       <h1>Product</h1>
       <div className="Product_category">
-        <button>Toys</button>
-        <button>Phones</button>
-        <button>Clothes</button>
+        {tags.map(tag => (
+          <span key={tag} className="tag">{tag}</span>
+        ))}
       </div>
       <div className='Product_content'>
-          {currentPosts.map((posts) =>(
-              <ProductContent
-                productName={posts.productName}
-                imgsrc={posts.imgsrc}
-                price={posts.price}
-                balance={posts.balance}
-                />
-          ))}
+        {currentPosts.map((posts) =>(
+          <ProductContent
+            productName={posts.productName}
+            imgsrc={posts.imgsrc}
+            price={posts.price}
+            balance={posts.balance}
+            />
+        ))}
       </div>
       <Pagination 
             totalPost={data.length} 

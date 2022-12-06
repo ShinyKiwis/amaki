@@ -4,6 +4,7 @@ import {Login} from "./pages"
 
 const App = () => {
   const [auth, setAuth] = useState(true)
+  const [selected, setSelected] = useState([]);
 
   if(!auth){
     return (
@@ -16,8 +17,8 @@ const App = () => {
   return (
     <main>
       <Header />
-      <Sidebar />
-      <Product />
+      <Sidebar selected={selected} setSelected={setSelected}/>
+      <Product tags={selected}/>
     </main>
   );
 }

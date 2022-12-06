@@ -25,8 +25,7 @@ const CategoryItem = ({ isSelected, title, setSelected, selected }) => {
   );
 };
 
-const Sidebar = () => {
-  const [selected, setSelected] = useState([]);
+const Sidebar = ({selected, setSelected}) => {
   const categories = [
     "Toys",
     "Eletronics",
