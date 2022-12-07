@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {Header, Sidebar, Product} from './components';
-import {Login, ShopView} from "./pages"
+import {Login, ShopView, ProductPage, ProductPay} from "./pages"
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 
 const App = () => {
@@ -32,6 +32,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Dashboard />}/>
         <Route path='/shop' element={<ShopView />} />
+        <Route path='/product' element={<ProductPage />} />
+        <Route path='/productPayment' element={<ProductPay />} />
       </Routes>
     </BrowserRouter>
   );

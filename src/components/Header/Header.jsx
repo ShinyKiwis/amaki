@@ -6,7 +6,6 @@ import {BsTrashFill} from "react-icons/bs"
 import PopupProfile from '../Profile/Profile'
 import {useNavigate} from "react-router-dom"
 
-
 const User = ({profile}) => {
   const[buttonPopup, setButtonPopup] = useState(false);
   return (
@@ -21,11 +20,19 @@ const User = ({profile}) => {
 }
 
 export {User}
-
 const CartSummary = ({cart, setCart}) => {
   const handleDelete = (productName) => {
     setCart(cart.filter(product => product.productName !== productName))
   }
+  const navigate = useNavigate();
+  const changePage= () => {
+  console.log("CART:", cart)
+  navigate('/productPayment', {
+    state:{
+        data: cart
+    }
+  })
+}
   const CartItem = ({product}) => {
     return (
       <div className="cart_item">
@@ -51,7 +58,7 @@ const CartSummary = ({cart, setCart}) => {
           <CartItem product={product} />
         ))}
       </div>
-      <button className='cart_action'>Pay</button>
+      <button className='cart_action' onClick={changePage}>Pay</button>
     </div>
   )
 }
