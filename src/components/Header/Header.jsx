@@ -36,7 +36,7 @@ const CartSummary = ({cart, setCart}) => {
   const CartItem = ({product}) => {
     return (
       <div className="cart_item">
-        <img src={product.imgsrc} alt="product" />
+        <img src="/product.png" alt="product" />
         <div className='cart_item_info'>
           <span>{product.productName}</span>
           <span>Quantity: {product.quantity}</span>
@@ -77,9 +77,9 @@ const Header = ({cart, setCart}) => {
         <input className='search_box' placeholder='Wanna see something cool?'/>
         <BiSearch className='search_icon'/>
       </div>
-      <div className='header_shop_view' onClick={changeRoute}>
+      {/* <div className='header_shop_view' onClick={changeRoute}>
           <span>Shop Manager</span>
-      </div>
+      </div> */}
       <div className='user_actions'>
         <User />
         <div className='cart'>

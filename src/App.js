@@ -7,6 +7,13 @@ const App = () => {
   const [auth, setAuth] = useState(true)
   const [selected, setSelected] = useState([]);
   const [cart, setCart] = useState([])
+  // false = low to high 
+  // true = high to low 
+  const [price, setPrice] = useState(undefined)
+
+  // false = in stock 
+  // true = out of stock 
+  const [stock, setStock] = useState(undefined)
 
   if(!auth){
     return (
@@ -21,8 +28,8 @@ const App = () => {
     return (
       <main>
         <Header cart={cart} setCart={setCart}/>
-        <Sidebar selected={selected} setSelected={setSelected}/>
-        <Product tags={selected} cart={cart} setCart={setCart}/>
+        <Sidebar selected={selected} setSelected={setSelected} setPrice={setPrice} setStock={setStock}/>
+        <Product tags={selected} cart={cart} setCart={setCart} price={price} stock={stock}/>
       </main>
     )
   }

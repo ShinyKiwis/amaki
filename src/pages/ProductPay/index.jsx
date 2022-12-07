@@ -21,7 +21,7 @@ const ProductPay = () => {
         products.map((data) => (
           <div className='Product_payment_content'>
             <h1>{data.productName}</h1>
-            <img src={data.imgsrc} alt='abigtoy'/>
+            <img src="/product.png" alt='abigtoy'/>
             <h1>${data.quantity*data.price}</h1>
             <p>Quantity:{data.quantity}</p>
           </div>

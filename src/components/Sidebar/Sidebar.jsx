@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Sidebar.css";
+import axios from "axios";
 
 const CategoryItem = ({ isSelected, title, setSelected, selected }) => {
   const [isChecked, setIsChecked] = useState(false);
@@ -25,26 +26,25 @@ const CategoryItem = ({ isSelected, title, setSelected, selected }) => {
   );
 };
 
-const Sidebar = ({selected, setSelected}) => {
-  const categories = [
-    "Toys",
-    "Eletronics",
-    "Clothes",
-    "Housewares",
-    "LifeStyles",
-    "PC&Laptop",
-    "Watch",
-    "Health",
-    "Sport&Traveling",
-    "Bookstore",
-  ];
-
+const Sidebar = ({ selected, setSelected, setPrice, setStock }) => {
+  const [categories, setCategories] = useState([]);
+  const fetchData = async () => {
+    const data = await axios.get("http://localhost:3500/category");
+    let categories = []
+    data.data.forEach((category) =>
+      categories.push(category.category_name)
+    );
+    setCategories(categories)
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <div className="sidebar">
       <h3>Price</h3>
       <div className="options">
-        <button>Price: From low to high</button>
-        <button>Price: From high to low</button>
+        <button onClick={() => setPrice(false)}>Price: From low to high</button>
+        <button onClick={() => setPrice(true)}>Price: From high to low</button>
       </div>
       <h3>Category</h3>
       <div className="options">
@@ -62,8 +62,8 @@ const Sidebar = ({selected, setSelected}) => {
       </div>
       <h3>Stock Availability</h3>
       <div className="options">
-        <button>Stock: In stock</button>
-        <button>Stock: Out of stock</button>
+        <button onClick={() => setStock(false)}>Stock: Low Availability</button>
+        <button onClick={() => setStock(true)}>Stock: High Availability</button>
       </div>
     </div>
   );

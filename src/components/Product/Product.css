@@ -37,6 +37,8 @@
     z-index: 0;
     flex-wrap: wrap;
     width: 100%;
+    height: 35em;
+    overflow-y: auto;
 }
 .Product_like{
     position: absolute;
@@ -81,6 +83,7 @@
     line-height: 0.5em;
     cursor: pointer;
     z-index: 1;
+    gap: 1em;
 }
 .Product_box h1{
     font-size: large;
@@ -105,7 +108,7 @@
     position: absolute;
     width:100%;
     height: 100%;
-    top: 30%;
+    top:0%;
     left:5%;
     display: flex;
     flex-direction: row;
